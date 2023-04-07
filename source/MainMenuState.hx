@@ -209,15 +209,15 @@ class MainMenuState extends MusicBeatState
 
 			if (SecretKeyComb1) 
 			{
-				CurrentKey = 1
+				CurrentKey = 1;
 			}
 			if (SecretKeyComb2 && CurrentKey == 1) // IM WAAY TO USED TO LUA SORRY
 			{
-				CurrentKey = 2
+				CurrentKey = 2;
 			}
 			if (SecretKeyComb3 && CurrentKey == 2)
 			{
-				CurrentKey = 3
+				CurrentKey = 3;
 			}
 			if (SecretKeyComb4 && CurrentKey == 3)
 			{
@@ -226,7 +226,7 @@ class MainMenuState extends MusicBeatState
 			}
 			if (!SecretKeyComb1 && !SecretKeyComb2 && !SecretKeyComb3 && !SecretKeyComb4 && FlxG.keys.anyJustPressed())
 			{
-				CurrentKey = 0
+				CurrentKey = 0;
 			}
 
 			if (controls.ACCEPT)
