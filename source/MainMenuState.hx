@@ -29,6 +29,11 @@ class MainMenuState extends MusicBeatState
 	public static var curSelected:Int = 0;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
+	var SecretKeyComb1 = FlxG.keys.justPressed.FIVE;
+	var SecretKeyComb2 = FlxG.keys.justPressed.EIGHT;
+	var SecretKeyComb3 = FlxG.keys.justPressed.THREE;
+	var SecretKeyComb4 = FlxG.keys.justPressed.EIGHT;
+	var CurrentKey:Int = 0;
 	private var camGame:FlxCamera;
 	private var camAchievement:FlxCamera;
 	
@@ -200,6 +205,28 @@ class MainMenuState extends MusicBeatState
 				selectedSomethin = true;
 				FlxG.sound.play(Paths.sound('cancelMenu'));
 				MusicBeatState.switchState(new TitleState());
+			}
+
+			if (SecretKeyComb1) then
+			{
+				CurrentKey = 1
+			}
+			if (SecretKeyComb2 && CurrentKey == 1) then
+			{
+				CurrentKey = 2
+			}
+			if (SecretKeyComb3 && CurrentKey == 2) then
+			{
+				CurrentKey = 3
+			}
+			if (SecretKeyComb4 && CurrentKey == 3) then
+			{
+				PlayState.SONG = Song.loadFromJson("thirst-hard", "Thirst");
+				LoadingState.loadAndSwitchState(new PlayState());
+			}
+			if (!SecretKeyComb1 && !SecretKeyComb2 && !SecretKeyComb3 && !SecretKeyComb4 && FlxG.keys.anyJustPressed())
+			{
+				CurrentKey = 0
 			}
 
 			if (controls.ACCEPT)
