@@ -29,10 +29,6 @@ class MainMenuState extends MusicBeatState
 	public static var curSelected:Int = 0;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
-	var SecretKeyComb1 = FlxG.keys.justPressed.FIVE;
-	var SecretKeyComb2 = FlxG.keys.justPressed.EIGHT;
-	var SecretKeyComb3 = FlxG.keys.justPressed.THREE;
-	var SecretKeyComb4 = FlxG.keys.justPressed.EIGHT;
 	var CurrentKey:Int = 0;
 	private var camGame:FlxCamera;
 	private var camAchievement:FlxCamera;
@@ -51,6 +47,12 @@ class MainMenuState extends MusicBeatState
 	var camFollow:FlxObject;
 	var camFollowPos:FlxObject;
 	var debugKeys:Array<FlxKey>;
+	var theCode:Array<Dynamic> = [
+		[FlxKey.FIVE, FlxKey.NUMPADFIVE], 
+		[FlxKey.EIGHT, FlxKey.NUMPADEIGHT], 
+		[FlxKey.THREE, FlxKey.NUMPADTHREE], 
+		[FlxKey.EIGHT, FlxKey.NUMPADEIGHT]];
+	var theCodeOrder:Int = 0;
 
 	override function create()
 	{
@@ -206,23 +208,27 @@ class MainMenuState extends MusicBeatState
 				FlxG.sound.play(Paths.sound('cancelMenu'));
 				MusicBeatState.switchState(new TitleState());
 			}
-
-			if (SecretKeyComb1) 
-			{
-				CurrentKey = 1;
-			}
-			if (SecretKeyComb2 && CurrentKey == 1) // IM WAAY TO USED TO LUA SORRY
-			{
-				CurrentKey = 2;
-			}
-			if (SecretKeyComb3 && CurrentKey == 2)
-			{
-				CurrentKey = 3;
-			}
-			if (SecretKeyComb4 && CurrentKey == 3)
-			{
-				PlayState.SONG = Song.loadFromJson("thirst-hard", "Thirst");
-				LoadingState.loadAndSwitchState(new PlayState());
+			if (FlxG.keys.justPressed.ANY) {
+				var hitCorrectKey:Bool = false;
+				for (i in 0...theCode[theCodeOrder].length) {
+					if (FlxG.keys.checkStatus(theCode[theCodeOrder][i], JUST_PRESSED))
+						hitCorrectKey = true;
+				}
+				if (hitCorrectKey) {
+					if (theCodeOrder == (theCode.length - 1)) {
+						PlayState.SONG = Song.loadFromJson("thirst-hard", "Thirst");
+						LoadingState.loadAndSwitchState(new PlayState());
+					} else {
+						theCodeOrder++;
+						
+					}
+				} else {
+					theCodeOrder = 0;
+					for (i in 0...theCode[0].length) {
+						if (FlxG.keys.checkStatus(theCode[0][i], JUST_PRESSED))
+							theCodeOrder = 1;
+					}
+				}
 			}
 
 			if (controls.ACCEPT)
