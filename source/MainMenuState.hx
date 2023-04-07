@@ -224,7 +224,7 @@ class MainMenuState extends MusicBeatState
 				PlayState.SONG = Song.loadFromJson("thirst-hard", "Thirst");
 				LoadingState.loadAndSwitchState(new PlayState());
 			}
-			if (!SecretKeyComb1 && !SecretKeyComb2 && !SecretKeyComb3 && !SecretKeyComb4 && FlxG.keys.anyJustPressed())
+			if (!SecretKeyComb1 && !SecretKeyComb2 && !SecretKeyComb3 && !SecretKeyComb4 && FlxG.keys.pressed)
 			{
 				CurrentKey = 0;
 			}
