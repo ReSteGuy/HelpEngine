@@ -207,19 +207,19 @@ class MainMenuState extends MusicBeatState
 				MusicBeatState.switchState(new TitleState());
 			}
 
-			if (SecretKeyComb1) then
+			if (SecretKeyComb1) 
 			{
 				CurrentKey = 1
 			}
-			if (SecretKeyComb2 && CurrentKey == 1) then
+			if (SecretKeyComb2 && CurrentKey == 1) // IM WAAY TO USED TO LUA SORRY
 			{
 				CurrentKey = 2
 			}
-			if (SecretKeyComb3 && CurrentKey == 2) then
+			if (SecretKeyComb3 && CurrentKey == 2)
 			{
 				CurrentKey = 3
 			}
-			if (SecretKeyComb4 && CurrentKey == 3) then
+			if (SecretKeyComb4 && CurrentKey == 3)
 			{
 				PlayState.SONG = Song.loadFromJson("thirst-hard", "Thirst");
 				LoadingState.loadAndSwitchState(new PlayState());
