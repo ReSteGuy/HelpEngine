@@ -32,6 +32,7 @@ class Preloader extends FlxBasePreloader
     }
      
     override function update(Percent:Float):Void 
+    {
         super.update(Percent);
     }
 }
