@@ -206,7 +206,7 @@ class MainMenuState extends MusicBeatState
 				FlxG.sound.play(Paths.sound('cancelMenu'));
 				MusicBeatState.switchState(new TitleState());
 			}
-			if (FlxG.keys.justPressed.ANY) {
+			/*if (FlxG.keys.justPressed.ANY) {
 				var hitCorrectKey:Bool = false;
 				for (i in 0...theCode[theCodeOrder].length) {
 					if (FlxG.keys.checkStatus(theCode[theCodeOrder][i], JUST_PRESSED))
@@ -227,7 +227,7 @@ class MainMenuState extends MusicBeatState
 							theCodeOrder = 1;
 					}
 				}
-			}
+			}*/
 
 			if (controls.ACCEPT)
 			{
