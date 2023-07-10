@@ -8,11 +8,7 @@ import flash.display.BlendMode;
 import flash.display.Sprite;
 import flash.Lib;
 import flixel.FlxG;
-#if VIDEOS_ALLOWED
-#if (hxCodec >= "2.6.1") import hxcodec.VideoHandler as MP4Handler;
-#elseif (hxCodec == "2.6.0") import VideoHandler as MP4Handler;
-#else import vlc.MP4Handler; #end
-#end
+import vlc.MP4Handler;
  
 class Preloader extends FlxBasePreloader
 {
@@ -23,8 +19,6 @@ class Preloader extends FlxBasePreloader
 
     override function create():Void 
     {
-        this._width = Lib.current.stage.stageWidth;
-        this._height = Lib.current.stage.stageHeight;
         var video:MP4Handler = new MP4Handler();
         var filepath:String = Paths.video("splashIntro");
 		video.playVideo(filepath);
