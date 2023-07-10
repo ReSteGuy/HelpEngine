@@ -8,7 +8,9 @@ import flash.display.BlendMode;
 import flash.display.Sprite;
 import flash.Lib;
 import flixel.FlxG;
-import vlc.MP4Handler;
+#if (hxCodec >= "2.6.1") import hxcodec.VideoHandler as MP4Handler;
+#elseif (hxCodec == "2.6.0") import VideoHandler as MP4Handler;
+#else import vlc.MP4Handler; #end
  
 class Preloader extends FlxBasePreloader
 {
@@ -18,9 +20,9 @@ class Preloader extends FlxBasePreloader
     }
 
     override function create():Void 
-    {
+    {   
+        var filepath:String = "assets/videos/splashIntro.mp4"
         var video:MP4Handler = new MP4Handler();
-        var filepath:String = Paths.video("splashIntro");
 		video.playVideo(filepath);
         super.create();
     }
