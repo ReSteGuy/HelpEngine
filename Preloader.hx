@@ -21,7 +21,7 @@ class Preloader extends FlxBasePreloader
 
     override function create():Void 
     {   
-        var filepath:String = "assets/videos/splashIntro.mp4"
+        var filepath:String = "assets/videos/splashIntro.mp4";
         var video:MP4Handler = new MP4Handler();
 		video.playVideo(filepath);
         super.create();
