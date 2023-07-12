@@ -1,7 +1,7 @@
 {	
 	"titlex":235,
 	"titley":10,
-	"startx":100,
+	"startx":-100,
 	"starty":576,
 	"gfx":3333,
 	"gfy":3333,
