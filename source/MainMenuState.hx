@@ -121,14 +121,14 @@ class MainMenuState extends MusicBeatState
 			menuItem.animation.play('idle');
 			menuItem.ID = i;
 			if ( optionShit[i] == "story_mode") {
-				menuItem.x = 78
-				menuItem.y = 191
+				menuItem.x = 78;
+				menuItem.y = 191;
 			} else if ( optionShit[i] == "options") {
-				menuItem.x = 427
-				menuItem.y = 129
+				menuItem.x = 427;
+				menuItem.y = 129;
 			} else if ( optionShit[i] == "credits") {
-				menuItem.x = 754
-				menuItem.y = 191
+				menuItem.x = 754;
+				menuItem.y = 191;
 			}
 			menuItems.add(menuItem);
 			menuItem.antialiasing = ClientPrefs.globalAntialiasing;
