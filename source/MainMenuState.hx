@@ -34,9 +34,8 @@ class MainMenuState extends MusicBeatState
 	private var camAchievement:FlxCamera;
 	
 	var optionShit:Array<String> = [
-		'options',
 		'story_mode',
-		'freeplay',
+		'options',
 		'credits'
 	];
 
@@ -121,8 +120,16 @@ class MainMenuState extends MusicBeatState
 			menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
 			menuItem.animation.play('idle');
 			menuItem.ID = i;
-			menuItem.screenCenter(X);
-			menuItem.screenCenter(Y);
+			if ( optionShit[i] == "story_mode") {
+				menuItem.x = 78
+				menuItem.y = 191
+			} else if ( optionShit[i] == "options") {
+				menuItem.x = 427
+				menuItem.y = 129
+			} else if ( optionShit[i] == "credits") {
+				menuItem.x = 754
+				menuItem.y = 191
+			}
 			menuItems.add(menuItem);
 			menuItem.antialiasing = ClientPrefs.globalAntialiasing;
 			menuItem.updateHitbox();
