@@ -2,6 +2,6 @@
 <TextureAtlas imagePath="menu_credits.png">
 	<!-- Created with Adobe Animate version 22.0.5.191 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="credits basic0000" x="3" y="3" width="610" height="553"/>
-	<SubTexture name="credits white0000" x="616" y="3" width="610" height="553"/>
+	<SubTexture name="credits basic0000" x="3" y="3" width="438" height="398"/>
+	<SubTexture name="credits white0000" x="444" y="3" width="438" height="398"/>
 </TextureAtlas>
