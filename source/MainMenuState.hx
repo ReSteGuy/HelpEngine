@@ -229,7 +229,10 @@ class MainMenuState extends MusicBeatState
 					}
 				}
 			}*/
-
+			if (FlxG.keys.justPressed.F) {
+				FlxG.sound.play(Paths.sound('confirmMenu'));
+				MusicBeatState.switchState(new FreeplayState());
+			}
 			if (controls.ACCEPT)
 			{
 				if (optionShit[curSelected] == 'donate')
